@@ -1,0 +1,22 @@
+<div id="sidebar-wrapper">
+  <ul class="nav sidebar-nav nav-list">
+    {{#each projects}}
+    <li>
+      <a class="project-title" href="#{{id}}">{{name}}</a>
+      {{#each endpoints}}
+      <li>
+        <ul class="methods-title list list-unstyled">
+          <li><a href="#{{id}}_endpoint">{{name}}</a></li>{{#each methods}}
+          <li>
+            <ul class="api-methods list list-unstyled">
+            <li><a href="#{{id}}"><i class="glyphicon glyphicon-chevron-right"></i>{{name}}</a></li>
+            </ul>
+          </li>
+          {{/each}}
+        </ul>
+      </li>
+      {{/each}}
+    </li>
+    {{/each}}
+  </ul>
+</div>

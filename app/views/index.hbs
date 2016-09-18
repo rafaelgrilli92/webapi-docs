@@ -1,0 +1,159 @@
+{{#each projects}}
+<div id="{{id}}" class="content-header">
+	{{name}}
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th>Produção</th>
+					<td>{{url_homolog}}</td>
+				</tr>
+				<tr>
+					<th>Homologação</th>
+					<td>{{url_prod}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+{{#each endpoints}}
+<div id="{{id}}_endpoint" class="content-endpoint">
+	{{#each methods}}
+	<div id="{{id}}" class="row">
+		<div class="col-xs-12">
+			<h3>{{name}}</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<p>{{description}}</p>
+		</div>
+	</div>
+	<div class="method-box">
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Método</th>
+							<th>URL</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{type}}</td>
+							<td>{{url}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="nav nav-tabs" role="tablist"> 
+					<li role="presentation" class="active">
+						<a href="#{{id}}_parametros" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Parâmetros</a>
+					</li> 
+					{{#if request}}
+					<li role="presentation" class="">
+						<a href="#{{id}}_request" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Request</a>
+					</li>
+					{{/if}}
+					{{#if response}}
+					<li role="presentation" class="">
+						<a href="#{{id}}_response" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Response</a>
+					</li> 
+					{{/if}}
+				</ul> 
+				<div class="tab-content"> 
+					<div class="tab-pane fade active in" role="tabpanel" id="{{id}}_parametros"> 
+						<div class="row">
+							<div class="col-xs-12">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Nome</th>
+											<th>Tipo</th>
+											<th>Descrição</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#if parameters}}
+										{{#each parameters}}
+										<tr>
+											<td>{{name}}</td>
+											<td>{{type}}</td>
+											<td>{{description}}</td>
+										</tr>
+										{{/each}}
+										{{else}}
+										<tr>
+											<td colspan="3">Nenhum parâmetro é necessário.</td>
+										</tr>
+										{{/if}}
+									</tbody>
+								</table>
+								{{#each legends}}
+								<span>|| {{str}}</span>
+								{{/each}}
+							</div>
+						</div>
+					</div> 
+					{{#if request}}
+					<div class="tab-pane fade" role="tabpanel" id="{{id}}_request">
+						{{#with request}}
+						<div class="row">
+							<div class="col-xs-12">
+								{{#if header}}
+								<label>Header:</label><br/>
+								{{#each header}}
+								<span>{{str}}</span></br>
+								{{/each}}
+							</br>
+							{{/if}}
+							{{#if body}}
+							<label>Body:</label><br/>
+							<pre class="print-json">
+								{{body}}
+							</pre>
+							{{/if}}
+						</div>
+					</div>
+					{{/with}}
+				</div> 
+				{{/if}}
+				{{#if response}}
+				<div class="tab-pane fade" role="tabpanel" id="{{id}}_response">
+					{{#with response}}
+					<div class="row">
+						<div class="col-xs-12">
+							<h4>Success</h4>
+							<pre class="print-json">
+								{{success}}
+							</pre>
+						</div>
+					</div>
+					{{#if error}}
+					<div class="row">
+						<div class="col-xs-12">
+							<h4>Error</h4>
+							<pre class="print-json">
+								{{error}}
+							</pre>
+						</div>
+					</div>
+					{{/if}}
+					{{/with}}
+				</div> 
+				{{/if}}
+			</div> 
+		</div>
+	</div>
+</div>
+<hr class="divider"/>
+{{/each}}
+</div>
+{{/each}}
+{{/each}}

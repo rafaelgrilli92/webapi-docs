@@ -1,0 +1,161 @@
+[{
+	"id": "portal_servicos",
+	"name": "Portal Serviços",
+	"url_homolog": "http://homolog.webapi.com",
+	"url_prod": "http://prod.webapi.com",
+	"endpoints": [{
+		"id": "ordens_servicos",
+		"name": "Ordens Serviço",
+		"methods": [{
+			"id": "obterOS",
+			"name": "Obter OS",
+			"type": "GET",
+			"url": "/OrdemServico/{numeroOS}",
+			"description": "Retorna os dados referente a Ordem de Serviço",
+			"parameters": [{
+				"name": "numeroOS",
+				"type": "Number",
+				"description": "Número da Ordem de Serviço"
+			}],
+			"response": {
+				"success": "{\"numero\":\"460294\",\"descricao\":\"Boa tarde!Ocorreu uma falta de permissão para realizar o download do arquivo 'versão.wheb.zip' que está disponibilizado na extranet para build 4 da versão 1667 swing.Segue print em anexo.Atenciosamente,Elisa - 11-3549-0870\",\"usuario\":\"ehabiro\",\"nome_pessoa\":\"Elisa Nobuko Habiro\",\"nome_executor\":\"Elisa Nobuko Habiro\",\"email\":\"elisa.habiro@haoc.com.br\",\"descricao_breve\":\"JAVA: Sem permissão para download de 1 arquivo - versão 1667. build 4 Swing \",\"data_abertura\":\"2016-04-19 17:54:58.0\",\"data_fim_real\":\"2016-04-20 18:02:58.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"P\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"P\",\"observacao\":\"a build não estava mais disponível\"}}"
+			}
+		} , {
+			"id": "listarHistorico",
+			"name": "Listar Histórico",
+			"type": "GET",
+			"url": "/OrdemServico/Historico/{numeroOS}",
+			"description": "Retorna os dados referente a Ordem de Serviço",
+			"parameters": [{
+				"name": "numeroOS",
+				"type": "Number",
+				"description": "Número da Ordem de Serviço"
+			}],
+			"response": {
+				"success": "{\"HistoricoOS\":[{\"numeroOS\":\"320868\",\"data\":\"2014-11-11 11:33:11.0\",\"usuario\":\"FVOLPI\",\"nome_pessoa\":\"Fabio Rosa Volpi\",\"tipo\":\"Informação Relevante da OS\",\"descricao\":\"{f1//ansi//deff0{//fonttbl{//f0//fnil//fcharset0 Verdana;}{//f1//fnil Verdana;}}{//colortbl ;//ed0//green0//blue0;}//viewkind4//uc1//pard//cf1//lang1046//f0//fs20 Visto no local com Mario da DW, foi feito testes na impressora e n//'e3o apresentou problema, verificado Log de eventos e funcionou normalmente, Mario efetuou restaura//'e7//'e3o de f//'e1brica para ceritificar-se que o problema n//'e3o ocorreria novamente OS encerrada.//f1 //par }\"},{\"numeroOS\":\"320868\",\"data\":\"2014-11-11 11:04:26.0\",\"usuario\":\"WSATO\",\"nome_pessoa\":\"Wagner Katsumi Sato\",\"tipo\":\"Informação Relevante da OS\",\"descricao\":\"{f1//ansi//deff0{//fonttbl{//f0//fnil//fcharset0 Verdana;}{//f1//fnil Verdana;}}{//colortbl ;//ed0//green0//blue0;}//viewkind4//uc1//pard//cf1//lang1046//f0//fs20 Mario verificando.//f1 //par }\"}]}"
+				}
+			} , {
+				"id": "listaEncerradas",
+				"name": "Listar Encerradas",
+				"type": "GET",
+				"url": "/Encerradas/GetAll/{gruposPlanejamento}",
+				"description": "Retorna um array contendo todas as Ordens de Serviço com status de 'Encerrada' e ordenadas pela Data do Encerramento",
+				"parameters": [{
+					"name": "GrupoPlanejamento",
+					"type": "String",
+					"description": "ID(s) do(s) Grupo(s) de Planejamento separados por virgula"
+				}],
+				"response": {
+					"success": "{\"OrdemServico\":[{\"numero\":\"382580\",\"descricao\":\"Segue os prints no Delphi e no JAVA, em anexo com os problemas encontrados:Campos que na Pasta Perdas e ganhos parte TIPOS que no Delphi Contém, porém no JAVA não.\",\"nome_executor\":\"Jorge Andre de Oliveira Abrantes\",\"email\":\"\",\"descricao_breve\":\"Testes Java  (V1647.9)  Cadastro Gerais PEP - Ganhos e Perdas\",\"data_abertura\":\"2015-07-16 11:49:53.0\",\"data_fim_real\":\"2016-05-23 16:30:58.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}},{\"numero\":\"404625\",\"descricao\":\"Boa noite!Conforme orientação da OS - 873600 (357528), solicitamos que as seguintes funções abaixo sejam possíveis a apresentação da CLASSIFICAÇÃO DA PESSOA:Faturamento Envio/Retorno:- Autorização Convênio- Autorização de Materiais EspeciaisNo aguardo.Atenciosamente,Janaina\",\"usuario\":\"JNUNES\",\"nome_pessoa\":\"Janaina Correa Nunes\",\"nome_executor\":\"Janaina Correa Nunes\",\"email\":\"janaina.nunes@haoc.com.br\",\"descricao_breve\":\"Tasy - Classificação da Pessoa X Faturamento Envio/Retorno\",\"data_abertura\":\"2015-10-02 19:26:01.0\",\"data_fim_real\":\"2016-05-23 16:29:44.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}}]}"
+					} 
+				} , {
+					"id": "listaEncerradasPorMinuto",
+					"name": "Listar Encerradas por Minuto",
+					"type": "GET",
+					"url": "/Encerradas/GetAll/{qtdeMinutos}/{gruposPlanejamento}",
+					"description": "Retorna um array contendo todas as Ordens de Serviço com status de 'Encerrada', com Data do Encerramento maior ou igual a quantidade de minutos enviados como parâmetro, ordenadas pela Data do Encerramento",
+					"parameters": [{
+						"name": "qtdeMinutos",
+						"type": "Number",
+						"description": "Quantidade de minutos a partir da DataHora atual para filtrar"
+					} , {
+						"name": "GrupoPlanejamento",
+						"type": "String",
+						"description": "ID(s) do(s) Grupo(s) de Planejamento separados por virgula"
+					}],
+					"response": {
+						"success": "{\"OrdemServico\":[{\"numero\":\"382580\",\"descricao\":\"Segue os prints no Delphi e no JAVA, em anexo com os problemas encontrados:Campos que na Pasta Perdas e ganhos parte TIPOS que no Delphi Contém, porém no JAVA não.\",\"nome_executor\":\"Jorge Andre de Oliveira Abrantes\",\"email\":\"\",\"descricao_breve\":\"Testes Java  (V1647.9)  Cadastro Gerais PEP - Ganhos e Perdas\",\"data_abertura\":\"2015-07-16 11:49:53.0\",\"data_fim_real\":\"2016-05-23 16:30:58.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}},{\"numero\":\"404625\",\"descricao\":\"Boa noite!Conforme orientação da OS - 873600 (357528), solicitamos que as seguintes funções abaixo sejam possíveis a apresentação da CLASSIFICAÇÃO DA PESSOA:Faturamento Envio/Retorno:- Autorização Convênio- Autorização de Materiais EspeciaisNo aguardo.Atenciosamente,Janaina\",\"usuario\":\"JNUNES\",\"nome_pessoa\":\"Janaina Correa Nunes\",\"nome_executor\":\"Janaina Correa Nunes\",\"email\":\"janaina.nunes@haoc.com.br\",\"descricao_breve\":\"Tasy - Classificação da Pessoa X Faturamento Envio/Retorno\",\"data_abertura\":\"2015-10-02 19:26:01.0\",\"data_fim_real\":\"2016-05-23 16:29:44.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}}]}"
+						} 
+					} , {
+						"id": "listaEncerradasPorUsuario",
+						"name": "Listar Encerradas por Usuário",
+						"type": "GET",
+						"url": "/Encerradas/{usuario}/{gruposPlanejamento}",
+						"description": "Retorna um array contendo todas as Ordens de Serviço com status de 'Encerrada', filtradas por usuário e ordenadas pela Data do Encerramento",
+						"parameters": [{
+							"name": "usuario",
+							"type": "String",
+							"description": "Nome de usuário"
+						} , {
+							"name": "GrupoPlanejamento",
+							"type": "String",
+							"description": "ID(s) do(s) Grupo(s) de Planejamento separados por virgula"
+						}],
+						"response": {
+							"success": "{\"OrdemServico\":[{\"numero\":\"468683\",\"descricao\":\"No gerenciador de relatório o mesmo está parametrizado para trazer a opção de imprimir como N para determinados perfis, porém o sistema não obedece esta configuração e ao usuário abrir a função o mesmo traz a opção como S.Segue anexo\",\"usuario\":\"TCAETANO\",\"nome_pessoa\":\"Thiago de Sousa Ament Caetano\",\"nome_executor\":\"Thiago de Sousa Ament Caetano\",\"email\":\"thiago.caetano@haoc.com.br\",\"descricao_breve\":\"Relatório não obedece aos padrões estabelecidos no gerenciador de relatório\",\"data_abertura\":\"2016-05-17 12:13:15.0\",\"data_fim_real\":\"2016-05-19 09:49:22.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}},{\"numero\":\"411140\",\"descricao\":\"Conforme RDC 40, capítulo V (ANEXO), a ANVISA passará a não revalidar a vigência de determinados produtos por data de validade.Sendo assim, precisamos de customização no cadastro de materiais que permita informar em formato de 'Fleg' que o mesmo está com vigência por parte da ANVISA.Acredito ser importante que esta 'Fleg' ou o campo data de validade sejam tratados, conforme os produtos classificados na RDC com esta determinação, ou seja, para determinados materiais, grupo, subrgrupo ou classe, ter a opção de obrigar o preenchimento dos mesmos no cadastro.Tal ação pode ser tratado em regra de negócio.Segue anexo, RDC 40.\",\"usuario\":\"TCAETANO\",\"nome_pessoa\":\"Thiago de Sousa Ament Caetano\",\"nome_executor\":\"Thiago de Sousa Ament Caetano\",\"email\":\"thiago.caetano@haoc.com.br\",\"descricao_breve\":\"Desenvolvimento de Fleg com a opção Vigente no cadastro de materiais\",\"data_abertura\":\"2015-10-27 10:24:30.0\",\"data_fim_real\":\"2016-05-18 08:06:39.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"O\",\"agilidade\":\"O\",\"conhecimento\":\"O\",\"cordialidade\":\"O\",\"solucao\":\"O\"}}]}"
+							} 
+						} , {
+							"id": "listaEncerradasAvaliadas",
+							"name": "Listar Avaliadas",
+							"type": "GET",
+							"url": "/Encerradas/Avaliadas/{gruposPlanejamento}",
+							"description": "Retorna um array contendo todas as Ordens de Serviço que tiveram avaliações, ordenadas pela Data do Encerramento",
+							"legends": [{"str": "\"O\" = Ótimo"}, {"str": "\"B\" = Bom"}, {"str": "\"R\" = Regular"}, {"str": "\"P\" = Ruim ou Péssimo"}, {"str": "\"N\" = Não se Aplica"}],
+							"parameters": [{
+								"name": "numeroOS",
+								"type": "Number",
+								"description": "Número da Ordem de Serviço"
+							} , {
+								"name": "usuario",
+								"type": "String",
+								"description": "Usuário Tasy que está avaliando a OS"
+							} , {
+								"name": "grau_satisfacao_geral",
+								"type": "String",
+								"description": "Grau de Satisfação Geral"
+							} , {
+								"name": "agilidade",
+								"type": "String",
+								"description": "Agilidade"
+							} , {
+								"name": "conhecimento",
+								"type": "String",
+								"description": "Conhecimento"
+							} , {
+								"name": "cordialidade",
+								"type": "String",
+								"description": "Cordialidade"
+							} , {
+								"name": "solucao",
+								"type": "String",
+								"description": "Solução"
+							} , {
+								"name": "observacao",
+								"type": "String",
+								"description": "Observação"
+							}],
+							"response": { 
+								"success": "{\"OrdemServico\":[{\"numero\":\"382580\",\"descricao\":\"Segue os prints no Delphi e no JAVA, em anexo com os problemas encontrados:Campos que na Pasta Perdas e ganhos parte TIPOS que no Delphi Contém, porém no JAVA não.\",\"nome_executor\":\"Jorge Andre de Oliveira Abrantes\",\"email\":\"\",\"descricao_breve\":\"Testes Java  (V1647.9)  Cadastro Gerais PEP - Ganhos e Perdas\",\"data_abertura\":\"2015-07-16 11:49:53.0\",\"data_fim_real\":\"2016-05-23 16:30:58.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}},{\"numero\":\"404625\",\"descricao\":\"Boa noite!Conforme orientação da OS - 873600 (357528), solicitamos que as seguintes funções abaixo sejam possíveis a apresentação da CLASSIFICAÇÃO DA PESSOA:Faturamento Envio/Retorno:- Autorização Convênio- Autorização de Materiais EspeciaisNo aguardo.Atenciosamente,Janaina\",\"usuario\":\"JNUNES\",\"nome_pessoa\":\"Janaina Correa Nunes\",\"nome_executor\":\"Janaina Correa Nunes\",\"email\":\"janaina.nunes@haoc.com.br\",\"descricao_breve\":\"Tasy - Classificação da Pessoa X Faturamento Envio/Retorno\",\"data_abertura\":\"2015-10-02 19:26:01.0\",\"data_fim_real\":\"2016-05-23 16:29:44.0\",\"status\":\"3\",\"avaliada\":\"1\",\"avaliacao\":{\"numeroOS\":\"0\",\"grau_satisfacao_geral\":\"B\",\"agilidade\":\"B\",\"conhecimento\":\"B\",\"cordialidade\":\"B\",\"solucao\":\"B\"}}]}"
+								}
+							} , {
+								"id": "gravarAvaliacaoOS",
+								"name": "Gravar Avaliação OS",
+								"type": "POST",
+								"url": "/Avaliar",
+								"description": "Retorna um array contendo todas as Ordens de Serviço que tiveram avaliações, ordenadas pela Data do Encerramento",
+								"parameters": [{
+									"name": "GrupoPlanejamento",
+									"type": "String",
+									"description": "ID(s) do(s) Grupo(s) de Planejamento separados por virgula"
+								}],
+								"request": {
+									"header": [{"str": "Content-Type: application/json"}],
+									"body": "{\"numeroOS\": 363347, \"usuario\": \"RFGRILLI\", \"grau_satisfacao_geral\": \"B\", \"agilidade\": \"R\", \"conhecimento\": \"O\", \"cordialidade\": \"P\",\"solucao\": \"N\", \"observacao\": \"Observação escrita para testar bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla\"}"
+								},
+								"response": {
+									"success": "{\"header\":\"HTTP/1.1 200 OK\", \"body\":\"OK\"}",
+									"error": "{\"header\":\"HTTP/1.1 403 Forbidden\", \"body\":\"ERROR_DESCRIPTION\"}"
+								}
+							}]
+}, {
+	"id": "tasy",
+	"name": "Tasy",
+	"methods": [{
+		"id": "listaGrupoPlanejamento",
+		"name": "Lista Grupo Planejamento",
+		"type": "GET",
+		"url": "/Tasy/GrupoPlanejamento/GetAll",
+		"description": "Obter todos os Grupos de Planejamentos ativos"
+	}]
+}]
+}]

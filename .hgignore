@@ -1,0 +1,7 @@
+syntax: glob
+
+node_modules/*
+*.orig
+*.ignore
+*.DS_Store
+npm-debug.log
